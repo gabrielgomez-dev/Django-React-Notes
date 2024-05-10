@@ -1,0 +1,42 @@
+# Ignore virtual environment
+/env/
+
+# Ignore Django migrations
+backend/api/migrations/
+backend/backend/migrations/
+
+# Ignore Node.js dependencies
+frontend/node_modules/
+
+# Ignore build artifacts
+frontend/dist/
+frontend/build/
+
+# Ignore any compiled Python bytecode
+*.pyc
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*.local
+
+# Ignore local Django settings
+backend/backend/local_settings.py
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore any generated files
+db.sqlite3
+
+# Ignore cache and temporary files
+__pycache__/
+*.log
+*.bak
+
+# Ignore sensitive or personal files
+*.secret
+
+# Ignore any files generated during development
+.DS_Store
