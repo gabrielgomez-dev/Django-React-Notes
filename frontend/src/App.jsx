@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
 function Logout() {
-  localStorage.removeItem("token");
+  localStorage.clear();
   return <Navigate to="/login" />;
 }
 
@@ -15,9 +15,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
         <Route
           path="/"
           element={
@@ -26,6 +23,9 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
