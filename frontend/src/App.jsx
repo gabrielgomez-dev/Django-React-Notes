@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import NoteIndex from "./pages/Notes/NoteIndex";
 
 function Logout() {
   localStorage.clear();
@@ -20,6 +21,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notes"
+          element={
+            <ProtectedRoute>
+              <NoteIndex />
             </ProtectedRoute>
           }
         />

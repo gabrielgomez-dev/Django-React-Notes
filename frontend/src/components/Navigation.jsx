@@ -6,6 +6,7 @@ import {
   HiOutlineUserAdd,
   HiOutlineLogin,
   HiOutlineLogout,
+  HiOutlineClipboardList,
 } from "react-icons/hi";
 import { useAuthContext } from "../context/AuthContext";
 
@@ -17,9 +18,6 @@ export default function Navigation() {
     logout();
     navigate("/login");
   };
-
-  // TODO: Delete this
-  console.log(isAuthenticated);
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -36,6 +34,10 @@ export default function Navigation() {
               <>
                 <Link to="/" className="nav-link">
                   <HiOutlineHome className="mr-1" /> Home
+                </Link>
+
+                <Link to="/notes" className="nav-link">
+                  <HiOutlineClipboardList className="mr-1" /> Notes
                 </Link>
 
                 <button onClick={handleLogout} className="nav-link">
