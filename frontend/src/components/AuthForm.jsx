@@ -1,25 +1,17 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import LoadingIndicator from "./LoadingIndicator";
 import api from "../../api";
+import { useAuthContext } from "../context/AuthContext";
 
-/**
- * Form component for login and register pages
- * @param {Object} props
- * @param {string} props.route - API route for login or register
- * @param {string} props.loginOrRegister - "login" or "register"
- * @returns {JSX.Element}
- * @example
- * <Form route="/login" loginOrRegister="login" />
- * <Form route="/register" loginOrRegister="register" />
- */
 export default function AuthForm({ route, loginOrRegister }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  const { login } = useAuthContext();
 
   const name = loginOrRegister === "login" ? "Login" : "Register";
 
@@ -31,9 +23,7 @@ export default function AuthForm({ route, loginOrRegister }) {
       const res = await api.post(route, { username, password });
 
       if (loginOrRegister === "login") {
-        localStorage.setItem(ACCESS_TOKEN, res.data.access);
-        localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-
+        login(res.data.access, res.data.refresh);
         navigate("/");
       } else {
         navigate("/login");

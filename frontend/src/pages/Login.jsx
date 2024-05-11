@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import AuthForm from "../components/Form";
+import AuthForm from "../components/AuthForm";
 import { Link } from "react-router-dom";
 
 export default function Login() {
